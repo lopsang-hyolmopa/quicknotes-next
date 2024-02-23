@@ -17,3 +17,13 @@ export async function addNote(formData: FormData) {
 
   redirect("/");
 }
+
+export async function deleteNote(id: number) {
+  await db.note.delete({
+    where: {
+      id,
+    },
+  });
+
+  redirect("/");
+}

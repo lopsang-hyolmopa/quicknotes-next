@@ -1,10 +1,11 @@
-'use client'
+"use client";
 
-import * as actions from "@/actions"
+import Layout from "@/components/layout";
+import * as actions from "@/actions";
 
 export default function NewNotePage() {
   return (
-    <div className="container mx-auto p-4 lg:p-12">
+    <Layout>
       <h1 className="text-3xl font-bold mb-4">Take a Note</h1>
       <form action={actions.addNote}>
         <div className="flex flex-col items-start gap-2">
@@ -28,10 +29,13 @@ export default function NewNotePage() {
           />
         </div>
 
-        <button type="submit" className="border-0 bg-orange-200 px-6 py-2 rounded-xl">
+        <button
+          type="submit"
+          className="border-0 bg-orange-200 px-6 py-2 rounded-xl"
+        >
           Add Note
         </button>
       </form>
-    </div>
+    </Layout>
   );
 }
