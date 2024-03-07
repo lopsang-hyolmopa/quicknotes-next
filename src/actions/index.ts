@@ -18,6 +18,18 @@ export async function addNote(formData: FormData) {
   redirect("/");
 }
 
+export async function editNote(id: number, title: string, description: string) {
+  await db.note.update({
+    where: { id },
+    data: {
+      title,
+      description,
+    },
+  });
+
+  redirect("/");
+}
+
 export async function deleteNote(id: number) {
   await db.note.delete({
     where: {
