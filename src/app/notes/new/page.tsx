@@ -6,7 +6,7 @@ import * as actions from "@/actions";
 export default function NewNotePage() {
   return (
     <Layout>
-      <h1 className="text-3xl font-bold mb-4">Take a Note</h1>
+      <h1 className="text-xl lg:text-2xl font-bold mb-4">Take a Note</h1>
       <form action={actions.addNote}>
         <div className="flex flex-col items-start gap-2">
           <label htmlFor="title">Title</label>
@@ -31,7 +31,7 @@ export default function NewNotePage() {
 
         <button
           type="submit"
-          className="border-0 bg-orange-200 px-6 py-2 rounded-xl"
+          className="border-0 bg-yellow-200 px-6 py-2 rounded-xl"
         >
           Add Note
         </button>
