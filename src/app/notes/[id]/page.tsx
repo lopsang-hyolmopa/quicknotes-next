@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
+import { notFound } from "next/navigation";
 
 import { db } from "@/db";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import * as actions from "@/actions";
-import NoteCard from "@/components/noteCard";
 
 interface NoteViewPageProps {
   params: {
@@ -20,6 +20,10 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
     },
   });
 
+  if(!note) {
+    return notFound()
+  }
+
   const deleteNoteAction = actions.deleteNote.bind(null, id);
 
   return (
@@ -29,11 +33,11 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
         <h3 className="text-lg lg:text-xl font-medium mb-2 text-gray-800">
           {note?.title}
         </h3>
-        <p className="text-gray-700">{note?.description}</p>
+        <p className="text-gray-600">{note?.description}</p>
       </div>
       <div className="flex gap-4">
         <Link
-          className="bg-yellow-200 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-2 text-gray-800 hover:shadow-md"
+          className="bg-blue-500 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-blue-600"
           href={`/notes/${note?.id}/edit`}
         >
           <AiOutlineEdit />
@@ -41,7 +45,7 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
         </Link>
 
         <form action={deleteNoteAction}>
-          <button className="bg-red-200 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-2 text-gray-800 hover:shadow-md">
+          <button className="bg-red-500 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-red-600">
             <AiOutlineDelete />
             Delete
           </button>

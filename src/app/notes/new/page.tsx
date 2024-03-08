@@ -1,6 +1,6 @@
 "use client";
 
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import * as actions from "@/actions";
 
 export default function NewNotePage() {
@@ -31,7 +31,7 @@ export default function NewNotePage() {
 
         <button
           type="submit"
-          className="border-0 bg-yellow-200 px-6 py-2 rounded-xl"
+          className="border-0 bg-blue-500 text-white px-6 py-2 rounded-xl hover:bg-blue-600"
         >
           Add Note
         </button>

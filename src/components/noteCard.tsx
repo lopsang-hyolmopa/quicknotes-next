@@ -14,7 +14,7 @@ export default function NoteCard({ note }: NoteCardProps) {
     >
       <div>
         <h3 className="text-lg lg:text-xl font-medium mb-4 text-gray-800">{note?.title}</h3>
-        <p className="text-gray-700">{note?.description}</p>
+        <p className="text-gray-600">{note?.description}</p>
       </div>
     </Link>
   );

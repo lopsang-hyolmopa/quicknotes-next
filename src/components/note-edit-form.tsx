@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import type { Note } from "@prisma/client";
-import Layout from "./layout";
+import Layout from "./Layout";
 import * as actions from "@/actions";
 
 interface NoteEditFormProps {
@@ -61,7 +61,7 @@ export default function NoteEditForm({ note }: NoteEditFormProps) {
       <form action={editNoteAction}>
         <button
           type="submit"
-          className="border-0 bg-yellow-200 px-6 py-2 rounded-xl"
+          className="border-0 bg-blue-500 text-white px-6 py-2 rounded-xl hover:bg-blue-600"
         >
           Update
         </button>
