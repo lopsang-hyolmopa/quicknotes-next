@@ -20,8 +20,8 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
     },
   });
 
-  if(!note) {
-    return notFound()
+  if (!note) {
+    return notFound();
   }
 
   const deleteNoteAction = actions.deleteNote.bind(null, id);
@@ -37,7 +37,7 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
       </div>
       <div className="flex gap-4">
         <Link
-          className="bg-blue-500 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-blue-600"
+          className="bg-blue-600 px-4 py-2 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-blue-500"
           href={`/notes/${note?.id}/edit`}
         >
           <AiOutlineEdit />
@@ -45,7 +45,7 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
         </Link>
 
         <form action={deleteNoteAction}>
-          <button className="bg-red-500 p-2 lg:px-4 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-red-600">
+          <button className="bg-red-600 px-4 py-2 rounded-xl flex items-center justify-between gap-1 text-white hover:bg-red-500">
             <AiOutlineDelete />
             Delete
           </button>

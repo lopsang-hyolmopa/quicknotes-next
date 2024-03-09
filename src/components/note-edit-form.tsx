@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 import type { Note } from "@prisma/client";
 import Layout from "./Layout";
@@ -33,6 +34,8 @@ export default function NoteEditForm({ note }: NoteEditFormProps) {
     description
   );
 
+  const noteUpdatedNotify = () => toast.success("Note updated successfully!")
+
   return (
     <Layout>
       <h1 className="text-xl lg:text-2xl font-bold mb-4">Edit Note</h1>
@@ -61,7 +64,8 @@ export default function NoteEditForm({ note }: NoteEditFormProps) {
       <form action={editNoteAction}>
         <button
           type="submit"
-          className="border-0 bg-blue-500 text-white px-6 py-2 rounded-xl hover:bg-blue-600"
+          className="border-0 bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-500"
+          onClick={noteUpdatedNotify}
         >
           Update
         </button>
