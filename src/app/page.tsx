@@ -27,7 +27,9 @@ export default async function Home() {
       ) : (
         <>
           <h1 className="text-xl lg:text-2xl font-bold mb-4">
-            {notes.length} Notes
+            {notes.length === 1
+              ? `${notes.length} Note`
+              : `${notes.length} Notes`}
           </h1>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {notes.map((note) => (
