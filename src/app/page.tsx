@@ -13,11 +13,8 @@ export default async function Home() {
 
   return (
     <Layout>
-      <h1 className="text-xl lg:text-2xl font-bold mb-4">
-        {notes.length} Notes
-      </h1>
       {noNotes ? (
-        <div className="min-h-80 flex flex-col items-center justify-center gap-4">
+        <div className="min-h-80 mt-32 flex flex-col items-center justify-center gap-4">
           <GrNotes className="h-24 w-24 text-gray-400" />
           <p>No notes found. Take your first note.</p>
           <Link
@@ -28,11 +25,16 @@ export default async function Home() {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {notes.map((note) => (
-            <NoteCard key={note.id} note={note} />
-          ))}
-        </div>
+        <>
+          <h1 className="text-xl lg:text-2xl font-bold mb-4">
+            {notes.length} Notes
+          </h1>
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            {notes.map((note) => (
+              <NoteCard key={note.id} note={note} />
+            ))}
+          </div>
+        </>
       )}
     </Layout>
   );
