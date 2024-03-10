@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { db } from "@/db";
@@ -24,6 +25,7 @@ export async function addNote(
     },
   });
 
+  revalidatePath("/")
   redirect("/");
 }
 
@@ -42,7 +44,8 @@ export async function editNote(id: number, title: string, description: string) {
     },
   });
 
-  redirect("/");
+  revalidatePath(`/notes/${id}`)
+  redirect(`/notes/${id}`);
 }
 
 export async function deleteNote(id: number) {
@@ -52,5 +55,6 @@ export async function deleteNote(id: number) {
     },
   });
 
+  revalidatePath("/")
   redirect("/");
 }
