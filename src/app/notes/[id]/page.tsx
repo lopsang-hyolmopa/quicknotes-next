@@ -54,3 +54,13 @@ export default async function NoteViewPage(props: NoteViewPageProps) {
     </Layout>
   );
 }
+
+export async function generateStaticParams() {
+  const notes = await db.note.findMany()
+
+  return notes.map((note) => {
+    return {
+      id: note?.id.toString()
+    }
+  })
+}
